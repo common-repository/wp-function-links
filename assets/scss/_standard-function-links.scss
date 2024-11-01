@@ -1,0 +1,12 @@
+/*Hide the legacy links option html*/
+#legacyLinks { display:none; }
+
+/* Set the function link anchor text styles */
+span.ppm-wpfl { 
+  text-decoration:underline;
+  color: #1e73be;
+}
+span.ppm-wpfl.no_underline { text-decoration:none; }
+
+/*Set the default cursor state for users on the front end hovering over a function link*/
+span.ppm-wpfl:hover { cursor: pointer; }

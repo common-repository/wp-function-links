@@ -1,0 +1,105 @@
+/* 
+
+*** Tabs Plugin ***
+
+* Original Author: John D Jameson
+* Original Code URL: http://codepen.io/johndjameson/pen/ecmlu 
+
+*/
+
+.wpfl .group::after,
+.wpfl .tabBlock-tabs::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+.wpfl figure p,figure ol,figure ul {
+  margin-bottom: 1.25rem;
+  margin-top: 0;
+}
+
+.wpfl figure ol,figure ul {
+  padding: 0;
+  margin-left: 1.25rem;
+}
+
+.wpfl .unstyledList, .tabBlock-tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+}
+
+.wpfl .tabBlock {
+  margin: 5% 0 0.5rem;
+}
+
+.wpfl .tabBlock-tab {
+  background-color: #fff;
+  border-color: #d8d8d8;
+  border-left-style: solid;
+  border-top: solid;
+  border-width: 2px;
+  color: #b5a8c5;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  float: left;
+  padding: 0.625rem 1.25rem;
+  position: relative;
+  -webkit-transition: 0.1s ease-in-out;
+          transition: 0.1s ease-in-out;
+}
+.wpfl .tabBlock-tab:last-of-type {
+  border-right-style: solid;
+}
+.wpfl .tabBlock-tab::before, .tabBlock-tab::after {
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+  -webkit-transition: 0.1s ease-in-out;
+          transition: 0.1s ease-in-out;
+}
+.wpfl .tabBlock-tab::before {
+  background-color: #b5a8c5;
+  left: -2px;
+  right: -2px;
+  top: -2px;
+}
+.wpfl .tabBlock-tab::after {
+  background-color: transparent;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+}
+@media screen and (min-width: 700px) {
+  .wpfl .tabBlock-tab {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+.wpfl .tabBlock-tab.is-active {
+  position: relative;
+  color: #975997;
+  z-index: 1;
+}
+.wpfl .tabBlock-tab.is-active::before {
+  background-color: #E3E764;
+}
+.wpfl .tabBlock-tab.is-active::after {
+  background-color: #fff;
+}
+
+
+
+.wpfl .tabBlock-pane > :last-child {
+  margin-bottom: 0;
+}

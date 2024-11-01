@@ -1,0 +1,513 @@
+/*************************************
+  >> Imports <<
+*************************************/
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+@import 'ripple-effect';
+
+
+/*********************************************
+  >> Social Media Colors <<
+*********************************************/
+$dark:        #272727;
+$light:       #E6E6E6;
+$facebook:    #3b5998;
+$twitter:     #00aced;
+$googleplus:  #dd4b39;
+$youtube:     #bb0000;
+$linkedin:    #007bb6;
+$instagram:   #517fa4;
+$pinterest:   #cb2027;
+$vine:        #00bf8f;
+$flickr:      #ff0084;
+$tumblr:      #32506d;
+$vimeo:       #aad450;
+$reddit:      #5F99CF;
+$stumbleupon: #EB4924;
+$behance:     #1769ff;
+$bitbucket:   #205081;
+$foursquare:  #EF4B78;
+$pocket:      #EE4056;
+$github:      #333;
+$lastfm:      #BB0000;
+$slideshare:  #007bb6;
+$skype:       #00AFF0;
+$soundcloud:  #FF5500;
+$twitch:      #6441A5;
+$trello:      #0079BF;
+$wordpress:   #23282d;
+$wikipedia:   #000;
+$digg:        #222;
+$evernote:    #2DBE60;
+$buffer:      #333;
+$delicious:   #000;
+$rss:         #F60;
+$codepen:     #191919;
+$steam:       #1B2838;
+$dribble:     #444;
+$email:       #222;
+$print:       #222;
+
+
+/*********************************************
+  >> Button Settings <<
+*********************************************/
+/* Padding */
+$vertical-padding: .5em;
+$horizontal-padding: 1.5em;
+/* Margin */
+$vertical-margin: .25em;
+$horizontal-margin: .5em;
+/* Text */
+$text-color: #efefef;
+$default-font-size: 16px;
+$small-font-size: 12px;
+$large-font-size: 21px;
+/* Border */
+$border-size: 2px;
+/* Transition */
+$transition: all .333s ease-in-out;
+
+
+/*****************************************
+  >> Background Color & Hover Effects <<
+  **
+  ** Control the background color and 
+  ** hover effect for the buttons with
+  ** this simple mixin.
+*****************************************/
+@mixin setBgColorAndHover($baseColor) {
+  background-color: $baseColor;
+  &:hover { 
+    background-color: lighten($baseColor, 10%); //lighten,darken; 
+    //Add Other Hover Effects Here....
+    /* border-radius: 3px; */
+  } 
+}
+
+
+/****************************************
+  >> Gradients <<
+****************************************/
+@mixin gradient($color) {
+  $gradient-difference: 7.5%;
+  $from: $color;
+  $to: darken($color,$gradient-difference);
+  background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background: -moz-linear-gradient(top,  $from, $to);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+  &:hover {
+    $from: $color;
+    $to: lighten($color,5%);
+    background: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background: -moz-linear-gradient(top,  $from, $to);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+  }
+}
+
+
+/*********************************************
+  >> Social Link Buttons <<
+*********************************************/
+.wpfl-social-links {
+  list-style: none !important;
+  display: block !important;
+  box-sizing:border-box !important;
+  font-family: 'Oswald', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: $default-font-size !important;
+  margin: 1em auto !important;
+  padding: 0 !important;
+  &::after {
+    content:"";
+    display:block;
+    clear: both;
+  }
+  & > li {
+    margin: 0;
+    padding: 0;
+    list-style: none !important;
+    border: none;
+  }
+    
+  li span.ppm-wpfl {
+    padding: $vertical-padding $horizontal-padding;
+    margin: $vertical-margin $horizontal-margin;
+    text-align: center;
+    text-decoration: none;
+    color: $text-color;
+    float: left;
+    transition: $transition;
+    &.facebook { @include setBgColorAndHover($facebook); }
+    &.twitter { @include setBgColorAndHover($twitter); }
+    &.pinterest { @include setBgColorAndHover($pinterest); }
+    &.linkedin { @include setBgColorAndHover($linkedin); }
+    &.reddit { @include setBgColorAndHover($reddit); }
+    &.googleplus { @include setBgColorAndHover($googleplus); }
+    &.youtube { @include setBgColorAndHover($youtube); }
+    &.instagram { @include setBgColorAndHover($instagram); }
+    &.vine { @include setBgColorAndHover($vine); }
+    &.flickr { @include setBgColorAndHover($flickr); }
+    &.tumblr { @include setBgColorAndHover($tumblr); }
+    &.vimeo { @include setBgColorAndHover($vimeo); }
+    &.stumbleupon { @include setBgColorAndHover($stumbleupon); }
+    &.behance { @include setBgColorAndHover($behance); }
+    &.bitbucket { @include setBgColorAndHover($bitbucket); }
+    &.foursquare { @include setBgColorAndHover($foursquare); }
+    &.pocket { @include setBgColorAndHover($pocket); }
+    &.github { @include setBgColorAndHover($github); }
+    &.lastfm { @include setBgColorAndHover($lastfm); }
+    &.slideshare { @include setBgColorAndHover($slideshare); }
+    &.skype { @include setBgColorAndHover($skype); }
+    &.soundcloud { @include setBgColorAndHover($soundcloud); }
+    &.twitch { @include setBgColorAndHover($twitch); }
+    &.trello { @include setBgColorAndHover($trello); }
+    &.wordpress { @include setBgColorAndHover($wordpress); }
+    &.wikipedia { @include setBgColorAndHover($wikipedia); }
+    &.digg { @include setBgColorAndHover($digg); }
+    &.evernote { @include setBgColorAndHover($evernote); }
+    &.buffer { @include setBgColorAndHover($buffer); }
+    &.delicious { @include setBgColorAndHover($delicious); }
+    &.rss { @include setBgColorAndHover($rss); }
+    &.codepen  { @include setBgColorAndHover($codepen ); }
+    &.steam  { @include setBgColorAndHover($steam ); }
+    &.dribble  { @include setBgColorAndHover($dribble ); }
+    &.email  { @include setBgColorAndHover($email ); }
+    &.print  { @include setBgColorAndHover($print ); }
+  }
+  
+  &.rounded li span.ppm-wpfl {
+    border-radius: 3px;
+  }
+  
+  &.border li span.ppm-wpfl {
+    &.facebook { border: solid $border-size darken($facebook, 15%); }
+    &.twitter { border: solid $border-size darken($twitter, 15%); }
+    &.pinterest { border: solid $border-size darken($pinterest, 15%); }
+    &.linkedin { border: solid $border-size darken($linkedin, 15%); }
+    &.reddit { border: solid $border-size darken($reddit, 15%); }
+    &.googleplus { border: solid $border-size darken($googleplus, 15%); }
+    &.youtube { border: solid $border-size darken($youtube, 15%); }
+    &.instagram { border: solid $border-size darken($instagram, 15%); }
+    &.vine { border: solid $border-size darken($vine, 15%); }
+    &.flickr { border: solid $border-size darken($flickr, 15%); }
+    &.tumblr { border: solid $border-size darken($tumblr, 15%); }
+    &.vimeo { border: solid $border-size darken($vimeo, 15%); }
+    &.stumbleupon { border: solid $border-size darken($stumbleupon, 15%); }
+    &.behance { border: solid $border-size darken($behance, 15%); }
+    &.bitbucket { border: solid $border-size darken($bitbucket, 15%); }
+    &.foursquare { border: solid $border-size darken($foursquare, 15%); }
+    &.pocket { border: solid $border-size darken($pocket, 15%); }
+    &.github { border: solid $border-size darken($github, 15%); }
+    &.lastfm { border: solid $border-size darken($lastfm, 15%); }
+    &.slideshare { border: solid $border-size darken($slideshare, 15%); }
+    &.skype { border: solid $border-size darken($skype, 15%); }
+    &.soundcloud { border: solid $border-size darken($soundcloud, 15%); }
+    &.twitch { border: solid $border-size darken($twitch, 15%); }
+    &.trello { border: solid $border-size darken($trello, 15%); }
+    &.wordpress { border: solid $border-size darken($wordpress, 15%); }
+    &.wikipedia { border: solid $border-size darken($wikipedia, 15%); }
+    &.digg { border: solid $border-size darken($digg, 15%); }
+    &.evernote { border: solid $border-size darken($evernote, 15%); }
+    &.buffer { border: solid $border-size darken($buffer, 15%); }
+    &.delicious { border: solid $border-size darken($delicious, 15%); }
+    &.rss { border: solid $border-size darken($rss, 15%); }
+    &.codepen  { border: solid $border-size darken($codepen , 15%); }
+    &.steam  { border: solid $border-size darken($steam , 15%); }
+    &.dribble  { border: solid $border-size darken($dribble , 15%); }
+    &.email  { border: solid $border-size darken($email , 15%); }
+    &.print  { border: solid $border-size darken($print , 15%); }
+  }
+  
+  &.border-bottom li span.ppm-wpfl {
+    &.facebook { border-bottom: solid $border-size darken($facebook, 15%); }
+    &.twitter { border-bottom: solid $border-size darken($twitter, 15%); }
+    &.pinterest { border-bottom: solid $border-size darken($pinterest, 15%); }
+    &.linkedin { border-bottom: solid $border-size darken($linkedin, 15%); }
+    &.reddit { border-bottom: solid $border-size darken($reddit, 15%); }
+    &.googleplus { border-bottom: solid $border-size darken($googleplus, 15%); }
+    &.youtube { border-bottom: solid $border-size darken($youtube, 15%); }
+    &.instagram { border-bottom: solid $border-size darken($instagram, 15%); }
+    &.vine { border-bottom: solid $border-size darken($vine, 15%); }
+    &.flickr { border-bottom: solid $border-size darken($flickr, 15%); }
+    &.tumblr { border-bottom: solid $border-size darken($tumblr, 15%); }
+    &.vimeo { border-bottom: solid $border-size darken($vimeo, 15%); }
+    &.stumbleupon { border-bottom: solid $border-size darken($stumbleupon, 15%); }
+    &.behance { border-bottom: solid $border-size darken($behance, 15%); }
+    &.bitbucket { border-bottom: solid $border-size darken($bitbucket, 15%); }
+    &.foursquare { border-bottom: solid $border-size darken($foursquare, 15%); }
+    &.pocket { border-bottom: solid $border-size darken($pocket, 15%); }
+    &.github { border-bottom: solid $border-size darken($github, 15%); }
+    &.lastfm { border-bottom: solid $border-size darken($lastfm, 15%); }
+    &.slideshare { border-bottom: solid $border-size darken($slideshare, 15%); }
+    &.skype { border-bottom: solid $border-size darken($skype, 15%); }
+    &.soundcloud { border-bottom: solid $border-size darken($soundcloud, 15%); }
+    &.twitch { border-bottom: solid $border-size darken($twitch, 15%); }
+    &.trello { border-bottom: solid $border-size darken($trello, 15%); }
+    &.wordpress { border-bottom: solid $border-size darken($wordpress, 15%); }
+    &.wikipedia { border-bottom: solid $border-size darken($wikipedia, 15%); }
+    &.digg { border-bottom: solid $border-size darken($digg, 15%); }
+    &.evernote { border-bottom: solid $border-size darken($evernote, 15%); }
+    &.buffer { border-bottom: solid $border-size darken($buffer, 15%); }
+    &.delicious { border-bottom: solid $border-size darken($delicious, 15%); }
+    &.rss { border-bottom: solid $border-size darken($rss, 15%); }
+    &.codepen  { border-bottom: solid $border-size darken($codepen , 15%); }
+    &.steam  { border-bottom: solid $border-size darken($steam , 15%); }
+    &.dribble  { border-bottom: solid $border-size darken($dribble , 15%); }
+    &.email  { border-bottom: solid $border-size darken($email , 15%); }
+    &.print  { border-bottom: solid $border-size darken($print , 15%); }
+  }
+  
+  &.shadow li span.ppm-wpfl {
+    box-shadow: 0px 2px 5px #666;
+    &:hover {
+      box-shadow: 0px 1px 5px #999;
+    }
+  }
+  
+  &.pill li span.ppm-wpfl {
+    border-radius: 1.4em;
+  }
+  
+  &.hollow li span.ppm-wpfl {
+    background-color: rgba(255,255,255,0);
+    &.facebook { border: solid $border-size darken($facebook, 15%); color: $facebook; }
+    &.twitter { border: solid $border-size darken($twitter, 15%); color: $twitter;}
+    &.pinterest { border: solid $border-size darken($pinterest, 15%); color: $pinterest; }
+    &.linkedin { border: solid $border-size darken($linkedin, 15%); color: $linkedin}
+    &.reddit { border: solid $border-size darken($reddit, 15%); color: $reddit; }
+    &.googleplus { border: solid $border-size darken($googleplus, 15%); color: $googleplus; }
+    &.youtube { border: solid $border-size darken($youtube, 15%); color: $youtube; }
+    &.instagram { border: solid $border-size darken($instagram, 15%); color: $instagram; }
+    &.vine { border: solid $border-size darken($vine, 15%); color: $vine; }
+    &.flickr { border: solid $border-size darken($flickr, 15%); color: $flickr; }
+    &.tumblr { border: solid $border-size darken($tumblr, 15%); color: $tumblr; }
+    &.vimeo { border: solid $border-size darken($vimeo, 15%); color: $vimeo; }
+    &.stumbleupon { border: solid $border-size darken($stumbleupon, 15%); color: $stumbleupon; }
+    &.behance { border: solid $border-size darken($behance, 15%); color: $behance; }
+    &.bitbucket { border: solid $border-size darken($bitbucket, 15%); color: $bitbucket; }
+    &.foursquare { border: solid $border-size darken($foursquare, 15%); color: $foursquare; }
+    &.pocket { border: solid $border-size darken($pocket, 15%); color: $pocket; }
+    &.github { border: solid $border-size darken($github, 15%); color: $github; }
+    &.lastfm { border: solid $border-size darken($lastfm, 15%); color: $lastfm; }
+    &.slideshare { border: solid $border-size darken($slideshare, 15%); color: $slideshare; }
+    &.skype { border: solid $border-size darken($skype, 15%); color: $skype; }
+    &.soundcloud { border: solid $border-size darken($soundcloud, 15%); color: $soundcloud; }
+    &.twitch { border: solid $border-size darken($twitch, 15%); color: $twitch; }
+    &.trello { border: solid $border-size darken($trello, 15%); color: $trello; }
+    &.wordpress { border: solid $border-size darken($wordpress, 15%); color: $wordpress; }
+    &.wikipedia { border: solid $border-size darken($wikipedia, 15%); color: $wikipedia; }
+    &.digg { border: solid $border-size darken($digg, 15%); color: $digg; }
+    &.evernote { border: solid $border-size darken($evernote, 15%); color: $evernote; }
+    &.buffer { border: solid $border-size darken($buffer, 15%); color: $buffer; }
+    &.delicious { border: solid $border-size darken($delicious, 15%); color: $delicious; }
+    &.rss { border: solid $border-size darken($rss, 15%); color: $rss; }
+    &.codepen  { border: solid $border-size darken($codepen , 15%); color: $codepen; }
+    &.steam  { border: solid $border-size darken($steam , 15%); color: $steam; }
+    &.dribble  { border: solid $border-size darken($dribble , 15%); color: $dribble; }
+    &.email  { border: solid $border-size darken($email , 15%); color: $email; }
+    &.print  { border: solid $border-size darken($print , 15%); color: $print; }
+    &:hover {
+      color: #efefef;
+    }
+  }
+  
+  &.icons li span.ppm-wpfl,
+  &.icons-only li span.ppm-wpfl {
+    &::before {
+      font-family: FontAwesome;
+      margin-right: .5em;
+    }
+    &.facebook::before { content: "\f09a"; }
+    &.twitter::before { content: "\f099"; }
+    &.pinterest::before { content: "\f231"; }
+    &.linkedin::before { content: "\f0e1"; }
+    &.reddit::before { content: "\f1a1"; }
+    &.googleplus::before { content: "\f0d5"; }
+    &.youtube::before { content: "\f167"; }
+    &.instagram::before { content: "\f16d"; }
+    &.vine::before { content: "\f1ca"; }
+    &.flickr::before { content: "\f16e"; }
+    &.tumblr::before { content: "\f173"; }
+    &.vimeo::before { content: "\f27d"; }
+    &.stumbleupon::before { content: "\f1a4"; }
+    &.behance::before { content: "\f1b4"; }
+    &.bitbucket::before { content: "\f171"; }
+    &.foursquare::before { content: "\f180"; }
+    &.pocket::before { content: "\f265"; }
+    &.github::before { content: "\f09b"; }
+    &.lastfm::before { content: "\f202"; }
+    &.slideshare::before { content: "\f1e7"; }
+    &.skype::before { content: "\f17e"; }
+    &.soundcloud::before { content: "\f1be"; }
+    &.twitch::before { content: "\f1e8"; }
+    &.trello::before { content: "\f181"; }
+    &.wordpress::before { content: "\f19a"; }
+    &.wikipedia::before { content: "\f266"; }
+    &.digg::before { content: "\f1a6"; }
+    &.delicious::before { content: "\f1a5"; }
+    &.buffer::before { content: "\f064"; } //Generic
+    &.evernote::before { content: "\f064"; } //Generic
+    &.rss::before { content: "\f143"; }
+    &.codepen::before { content: "\f1cb"; }
+    &.steam::before { content: "\f1b6"; }
+    &.dribble::before { content: "\f17d"; }
+    &.email::before { content: "\f0e0"; }
+    &.print::before { content: "\f02f"; }
+    .fa {
+      margin-right: .5em; 
+    }
+  }
+  
+  &.icons-only li span.ppm-wpfl::before {
+    margin-right: 0;
+  }
+  
+  &.spacing-small li span.ppm-wpfl {
+    margin: .25em;
+  }
+  
+  &.spacing-large li span.ppm-wpfl {
+    margin: .75em;
+  }
+  
+  &.spacing-none li span.ppm-wpfl {
+    margin: 0;
+  }
+  
+  &.small li span.ppm-wpfl {
+    font-size: $small-font-size;
+  }
+  
+  &.large li span.ppm-wpfl {
+    font-size: $large-font-size;
+  }
+  
+  &.gradient li span.ppm-wpfl {
+    /* $gradient-difference: 12.5%; */
+    &.facebook     { @include gradient($facebook); }
+    &.twitter      { @include gradient($twitter); }
+    &.pinterest    { @include gradient($pinterest); }
+    &.linkedin     { @include gradient($linkedin); }
+    &.reddit       { @include gradient($reddit); }
+    &.googleplus   { @include gradient($googleplus); }
+    &.youtube      { @include gradient($youtube); }
+    &.instagram    { @include gradient($instagram); }
+    &.vine         { @include gradient($vine); }
+    &.flickr       { @include gradient($flickr); }
+    &.tumblr       { @include gradient($tumblr); }
+    &.vimeo        { @include gradient($vimeo); }
+    &.stumbleupon  { @include gradient($stumbleupon); }
+    &.behance      { @include gradient($behance); }
+    &.bitbucket    { @include gradient($bitbucket); }
+    &.foursquare   { @include gradient($foursquare); }
+    &.pocket       { @include gradient($pocket); }
+    &.github       { @include gradient($github); }
+    &.lastfm       { @include gradient($lastfm); }
+    &.slideshare   { @include gradient($slideshare); }
+    &.skype        { @include gradient($skype); }
+    &.soundcloud   { @include gradient($soundcloud); }
+    &.twitch       { @include gradient($twitch); }
+    &.trello       { @include gradient($trello); }
+    &.wordpress    { @include gradient($wordpress); }
+    &.wikipedia    { @include gradient($wikipedia); }
+    &.digg         { @include gradient($digg); }
+    &.evernote     { @include gradient($evernote); }
+    &.buffer       { @include gradient($buffer); }
+    &.delicious    { @include gradient($delicious); }
+    &.rss          { @include gradient($rss); }
+    &.codepen      { @include gradient($codepen ); }
+    &.steam        { @include gradient($steam ); }
+    &.dribble      { @include gradient($dribble ); }
+    &.email        { @include gradient($email ); }
+    &.print        { @include gradient($print ); }
+  }
+  
+  &.dark {
+    li span.ppm-wpfl {
+      @include setBgColorAndHover($dark);
+    }
+    &.border li span.ppm-wpfl {
+      border: solid $border-size darken($dark, 15%);
+    }
+    &.border-bottom li span.ppm-wpfl {
+      border-bottom: solid $border-size darken($dark, 15%);
+    }
+  }
+  
+  &.light {
+    li span.ppm-wpfl {
+      @include setBgColorAndHover($light);
+      color: #272727;
+    }
+    &.border li span.ppm-wpfl {
+      border: solid $border-size darken($light, 15%);
+    }
+    &.border-bottom li span.ppm-wpfl {
+      border-bottom: solid $border-size darken($light, 15%);
+    }
+  }
+  
+  &.sleek li span.ppm-wpfl {
+    $sleek: #dbdbdb;
+    background-color: rgba(255,255,255,0);;
+    border: solid 1px $sleek !important;
+    color: $sleek;
+    &:hover {
+      color: #fff;
+      border: solid 1px #fff;
+    }
+  }
+  
+  &.sleek-white li span.ppm-wpfl {
+    $sleek-white: rgba(255, 255, 255, .6);
+    background-color: rgba(255,255,255,0);
+    border: solid 1px $sleek-white;
+    color: $sleek-white;
+    &:hover {
+      color: rgba(255,255,255,1);
+      border: solid 1px rgba(255,255,255,1);
+    }
+  }
+  
+  &.sleek-black li span.ppm-wpfl {
+    $sleek-black: rgba(0, 0, 0, .6);
+    background-color: rgba(255,255,255,0);
+    border: solid 1px $sleek-black;
+    color: $sleek-black;
+    &:hover {
+      color: rgba(255,255,255,1);
+      border: solid 1px rgba(0,0,0,1);
+    }
+  }
+  
+  &.floating-sidebar li span.ppm-wpfl {
+    
+  }
+}
+
+.widget .wpfl-social-links li {
+  list-style-type: none;
+  position: inherit;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.sidebar_widget > ul.wpfl-social-links > li {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/*********************************************
+  >> Tiny Phone Sizes <<
+*********************************************/
+@media screen and (max-width: 330px) {
+  .wpfl-social-links {
+    li span.ppm-wpfl {
+      display: block;
+      width: 100%;
+      float: none;
+      padding:.5em .15em;
+    }
+  }
+}
